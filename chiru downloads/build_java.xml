@@ -1,0 +1,37 @@
+<project name="HelloWorld" default="test">
+
+	
+	<!--<property file="build.properties"/>
+	
+				******************************    -->
+
+
+	<target name="test">
+		<echo> ant version ${ant.version} </echo>
+		<echo> ant home ${ant.home} </echo>
+		<echo> x value is ${x} </echo>
+	</target>
+	
+	<target name="Compile" >
+		<echo>Compiling my HelloWorld</echo>
+		<mkdir dir="${build_dir}/${classes_dir}"/>
+		<javac srcdir="${srd_dir}" destdir="${build_dir}/${classes_dir}"/>
+		
+	</target>
+	
+	<target name="package" depends="Compile">
+		<echo> Packaging the class files to a jar </echo>
+		<mkdir dir="${build_dir}/${jar_dir}"/>
+		<jar basedir="${build_dir}/${classes_dir}" destfile="${build_dir}/${jar_dir}/${fileName}.jar">
+			<manifest>
+				<attribute name="Main-Class" value="${fileName}"/>
+			</manifest>
+		</jar>
+	</target>
+	
+	<target name="Run" depends="package">
+		<echo> Running the jar file </echo>
+		<java jar="${build_dir}/${jar_dir}/${fileName}.jar" fork='true'/>
+	</target>
+	
+</project>

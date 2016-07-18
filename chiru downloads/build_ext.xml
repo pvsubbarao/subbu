@@ -1,0 +1,29 @@
+<project name="AntExample1" default="ext">
+
+	<target name="ext">
+	
+	
+	<mail mailhost="smtp.gmail.com" mailport="465" subject="Test build" user="XXXX" password="XXXX" ssl="true">
+  <from address="XXXX@gmail.com"/>
+   <to address="chiranjeevi.aec@gmail.com"/>
+  <message>The ${buildname} nightly build has completed</message>
+  
+	 <attachments>
+    <fileset dir=".">
+      <include name="*.txt"/>
+    </fileset>
+  </attachments>
+  
+</mail>
+	
+		  <scp file="build.zip" todir="vagrant:vagrant@192.168.33.51:/home/vagrant/bb" trust="true"/>
+		  
+		   <sshexec host="192.168.33.51"
+	username="vagrant"
+	password="vagrant"
+	command="df -h"
+	trust="true"
+	/>
+		
+	</target>
+</project>

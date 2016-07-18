@@ -1,0 +1,25 @@
+<project name="HelloWorld" default="Run">
+
+	<target name="Compile" >
+		<echo>Compiling my HelloWorld</echo>
+		<mkdir dir="build/classes"/>
+		<javac srcdir="src" destdir="build/classes"/>
+		
+	</target>
+	
+	<target name="package" depends="Compile">
+		<echo> Packaging the class files to a jar </echo>
+		<mkdir dir="build/jar"/>
+		<jar basedir="build/classes" destfile="build/jar/HelloWorld.jar">
+			<manifest>
+				<attribute name="Main-Class" value="HelloWorld"/>
+			</manifest>
+		</jar>
+	</target>
+	
+	<target name="Run" depends="package">
+		<echo> Running the jar file </echo>
+		<java jar="build/jar/HelloWorld.jar" fork='true'/>
+	</target>
+	
+</project>

@@ -1,0 +1,28 @@
+<project name="Test" default="A" >
+
+	<target name="A" >
+		<echo>File system tasks</echo>
+		<delete dir="build"/>
+		<mkdir dir="build/classes"/>		
+	
+	<!--		<delete file="myManifest"/>
+			
+			<delete dir="build"/>
+			
+			<copy file="hi.txt" tofile="hello.txt"/>
+			<copy file="hi.txt" todir="build"/>
+			<copy todir="build">
+				<fileset dir="src"/>
+			</copy>
+			
+			<copy todir="build">
+				<fileset dir="src">
+					<include name="**/*.txt"/>
+				</fileset>
+			</copy>-->
+			
+			<move file="hi.txt" tofile="hello.txt"/>
+		
+	</target>
+	
+</project>

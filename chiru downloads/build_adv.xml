@@ -1,0 +1,33 @@
+<project name="Test" default="main">
+
+	<target name="A" >
+		<echo>Hi This is my fir ANT script 1</echo>
+	</target>
+	
+	<target name="B">
+		<echo>Hi This is my fir ANT script 2</echo>
+	</target>
+	
+	<target name="C">
+		<echo>Hi This is my fir ANT script 3</echo>
+	</target>
+	
+	<target name="main">
+		<exec  executable="cmd.exe">
+		
+			<arg line="/c notepad"/>
+		
+		</exec>
+		<!--<unzip src="build.zip" dest="build"/>
+		<zip basedir="build" destfile="build.zip"/>
+	
+		<ant antfile="build_java.xml"/>
+		<ant antfile="build_java1.xml" target="Compile"/>
+			
+			<antcall target="C"/>
+			<antcall target="B"/>
+			<antcall target="A"/>  -->
+			
+	</target>
+	
+</project>
